@@ -1,0 +1,77 @@
+
+
+<!-- HERO FAQ -->
+<section class="relative overflow-hidden py-12 sm:py-20 text-center">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-rose-200/40 dark:bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 -right-24 w-96 h-96 bg-sky-200/40 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="inline-block mb-3 sm:mb-4">
+            <span class="border border-rose-300 dark:border-rose-400/80 text-rose-500 dark:text-rose-400 bg-white/90 dark:bg-[#141622] px-5 py-1.5 rounded-full text-xs font-bold tracking-wide shadow-2xs">
+                Bantuan
+            </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight uppercase leading-tight mb-4">
+            PERTANYAAN <span class="text-sky-500 dark:text-sky-400">UMUM</span>
+        </h1>
+        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm max-w-xl mx-auto mb-8">
+            Jawaban atas hal yang paling sering ditanyakan soal pemesanan, desain, dan pengiriman.
+        </p>
+
+        <!-- Daftar FAQ -->
+        
+            <div class="text-center py-12 text-slate-400">
+                <i data-lucide="inbox" class="w-10 h-10 mx-auto mb-3 text-slate-600"></i>
+                <p class="text-sm font-semibold">Belum ada FAQ. Silakan hubungi kami langsung.</p>
+            </div>
+        
+            <div class="space-y-3 text-left">
+                
+                <details class="group bg-white dark:bg-[#141622] border border-slate-200 dark:border-slate-800/80 rounded-2xl shadow-xs overflow-hidden" <?= $i === 0 ? 'open' : '' ?>>
+                    <summary class="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
+                        <span class="flex items-center gap-3">
+                            <span class="w-7 h-7 shrink-0 rounded-full bg-red-600 text-white text-[11px] font-black flex items-center justify-center"><?= $i + 1 ?></span>
+                            <span><?= htmlspecialchars($f['pertanyaan']) ?></span>
+                        </span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 shrink-0 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-5 pb-5 pl-[52px] text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        <?= nl2br(htmlspecialchars($f['jawaban'])) ?>
+                    </div>
+                </details>
+                
+            </div>
+
+        <!-- Testimoni singkat -->
+        
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-left">
+            
+            <div class="bg-white dark:bg-[#141622] border border-slate-200 dark:border-slate-800/80 rounded-2xl p-5 shadow-xs">
+                <div class="flex items-center gap-1 mb-2.5">
+                    
+                        <i data-lucide="star" class="w-3.5 h-3.5 <?= $s <= (int)$t['rating'] ? 'text-amber-400 fill-current' : 'text-slate-300 dark:text-slate-600' ?>"></i>
+                    
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">"<?= htmlspecialchars($t['isi']) ?>"</p>
+                <p class="font-bold text-xs text-slate-900 dark:text-white"><?= htmlspecialchars($t['nama']) ?></p>
+                
+                <p class="text-[11px] text-slate-400"><?= htmlspecialchars($t['jabatan']) ?></p>
+                
+            </div>
+            
+        </div>
+
+        <!-- CTA Bawah -->
+        <div class="mt-10 bg-white dark:bg-[#141622] border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+            <h2 class="font-extrabold text-base sm:text-xl text-slate-900 dark:text-white mb-1.5">Masih ada pertanyaan?</h2>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5">Langsung chat kami, respon cepat di jam kerja.</p>
+            <a href="https://wa.me/<?= $wa_link ?>?text=<?= urlencode($wa_template) ?>" target="_blank" data-wa-sumber="faq_cta"
+                class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-xs sm:text-sm px-7 py-2.5 rounded-full shadow-md transition-all">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Tanya via WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</section>
+
