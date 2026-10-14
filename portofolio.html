@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Hasil Karya - HERIEST ADVERTISING</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Kalam (Font Brush Tulis Tangan) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-site.js"></script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Theme Initializer (Persist Dark/Light Mode) -->
+    <script src="assets/js/theme-init.js"></script>
+
+    <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="font-sans bg-aurora text-slate-800 dark:text-slate-100 antialiased min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+    <!-- HEADER NAVIGATION (HITAM PRESISI GAMBAR) -->
+    <header class="bg-darkHeader text-white sticky top-0 z-50 border-b border-slate-800/80">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-14">
+                
+                <!-- Logo Kiri Presisi -->
+                <a href="index.php" class="flex items-center gap-2">
+                    <div class="bg-red-600 text-white font-black text-xl px-2.5 py-1 rounded flex items-center justify-center leading-none">
+                        X
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <div class="flex items-center gap-0.5 leading-none">
+                            <span class="text-xs font-black tracking-tight text-white">HERIEST</span>
+                            <span class="text-[10px] font-bold text-white">CV</span>
+                        </div>
+                        <span class="text-[7px] font-semibold text-red-500 uppercase tracking-widest mt-0.5 leading-none">ADVERTISING</span>
+                    </div>
+                </a>
+
+                <!-- Navigasi Tengah -->
+                <nav class="hidden md:flex items-center gap-6 text-[11px] font-medium text-slate-300">
+                    <a href="index.php#beranda" class="hover:text-white transition-colors">Beranda</a>
+                    <a href="index.php#layanan" class="hover:text-white transition-colors">Layanan Kami</a>
+                    <a href="index.php#produk" class="hover:text-white transition-colors">Produk</a>
+                    <a href="portofolio.php" class="hover:text-white transition-colors">Portofolio</a>
+                    <a href="index.php#tentang" class="hover:text-white transition-colors">Tentang Kami</a>
+                    <a href="index.php#pemesanan" class="hover:text-white transition-colors">Cara pemesanan</a>
+                    <a href="faq.php" class="hover:text-white transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Aksi Kanan (Search & Icons) -->
+                <div class="flex items-center gap-2">
+                    <!-- Search Input Box -->
+                    <div class="relative hidden sm:block">
+                        <input type="text" placeholder="cari produk" class="bg-[#181a20] border border-slate-700/60 rounded-full text-[10px] px-3 py-1 pl-6 w-32 focus:outline-none text-slate-300 placeholder-slate-500">
+                        <i data-lucide="search" class="w-3 h-3 text-slate-500 absolute left-2 top-1.5"></i>
+                    </div>
+                    
+                    <!-- Search Red Icon Button -->
+                    <button class="w-6 h-6 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center text-white transition-colors">
+                        <i data-lucide="search" class="w-3 h-3"></i>
+                    </button>
+                    
+                    <!-- Bendera ID & Dark/Light Toggle -->
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-800">
+                        <div class="w-4 h-2.5 bg-red-600 rounded-sm overflow-hidden relative border border-white/20">
+                            <div class="bg-white h-1/2 w-full absolute bottom-0"></div>
+                        </div>
+                        <button id="theme-toggle" type="button" aria-label="Toggle Mode Gelap/Terang" class="text-slate-400 hover:text-white transition-colors focus:outline-none cursor-pointer">
+                            <i id="theme-icon" data-lucide="moon" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="grow">
+<!-- HERO PORTOFOLIO -->
+<section class="relative overflow-hidden py-12 sm:py-20 text-center">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-rose-200/40 dark:bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 -right-24 w-96 h-96 bg-sky-200/40 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="inline-block mb-3 sm:mb-4">
+            <span class="border border-rose-300 dark:border-rose-400/80 text-rose-500 dark:text-rose-400 bg-white/90 dark:bg-[#141622] px-5 py-1.5 rounded-full text-xs font-bold tracking-wide shadow-2xs">
+                Portofolio kami
+            </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight uppercase leading-tight max-w-3xl mx-auto mb-4">
+            HASIL KARYA <span class="text-sky-500 dark:text-sky-400">HERIEST</span><br>
+            UNTUK KLIEN KAMI
+        </h1>
+        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm max-w-xl mx-auto mb-8">
+            Contoh proyek yang sudah kami kerjakan. Tertarik buat yang serupa? Langsung konsultasi gratis.
+        </p>
+
+        <!-- Filter Kategori -->
+        <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto py-2 px-1 mb-8 sm:mb-12 justify-start sm:justify-center px-4">
+                            <a
+                    href="portofolio.php"
+                    class="whitespace-nowrap px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0
+                    border border-rose-400 text-rose-500 dark:text-rose-400 bg-white dark:bg-[#181a28] shadow-2xs">
+                    Semua                </a>
+                            <a
+                    href="portofolio.php?cat=neon-box"
+                    class="whitespace-nowrap px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0
+                    border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 bg-white/70 dark:bg-[#141622]/80 hover:border-rose-300 hover:text-rose-500 dark:hover:text-white">
+                    Neon Box                </a>
+                            <a
+                    href="portofolio.php?cat=cetak-banner"
+                    class="whitespace-nowrap px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0
+                    border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 bg-white/70 dark:bg-[#141622]/80 hover:border-rose-300 hover:text-rose-500 dark:hover:text-white">
+                    Cetak Banner                </a>
+                            <a
+                    href="portofolio.php?cat=huruf-timbul"
+                    class="whitespace-nowrap px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0
+                    border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 bg-white/70 dark:bg-[#141622]/80 hover:border-rose-300 hover:text-rose-500 dark:hover:text-white">
+                    Huruf Timbul                </a>
+                            <a
+                    href="portofolio.php?cat=merchandise"
+                    class="whitespace-nowrap px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0
+                    border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 bg-white/70 dark:bg-[#141622]/80 hover:border-rose-300 hover:text-rose-500 dark:hover:text-white">
+                    Merchandise                </a>
+                    </div>
+
+        <!-- Grid Karya -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-left">
+                                            <div class="group bg-white dark:bg-[#141622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xs hover:shadow-lg dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <!-- Visual Contoh -->
+                    <div class="relative w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-rose-500 to-orange-400 flex items-center justify-center">
+                                                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]"></div>
+                            <i data-lucide="lightbulb" class="w-14 h-14 sm:w-16 sm:h-16 text-white/90 group-hover:scale-110 transition-transform duration-300"></i>
+                                                <span class="absolute top-2.5 left-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            Neon Box                        </span>
+                        <span class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                            2026                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white" title="Neon Box Bulat 80cm">
+                            Neon Box Bulat 80cm                        </h3>
+                        <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 flex items-center gap-1">
+                            <i data-lucide="building-2" class="w-3 h-3 shrink-0"></i>
+                            <span class="truncate">Kafe Aroma • Karanganyar</span>
+                        </p>
+                        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                            Neon box 2 sisi akrilik + LED hemat energi untuk plang cafe.                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <a
+                            href="https://wa.me/6282264356885?text=Halo+admin%2C+saya+mau+buat+seperti%3A+Neon+Box+Bulat+80cm+%28Kafe+Aroma%29"
+                            target="_blank"
+                            data-wa-sumber="portofolio" data-wa-ref="0"
+                            class="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-[10px] sm:text-xs py-2 sm:py-2.5 px-2 rounded-lg sm:rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all"
+                        >
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+                            <span class="truncate uppercase tracking-wider">Saya mau seperti ini</span>
+                        </a>
+                    </div>
+                </div>
+                                <div class="group bg-white dark:bg-[#141622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xs hover:shadow-lg dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <!-- Visual Contoh -->
+                    <div class="relative w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-sky-500 to-cyan-400 flex items-center justify-center">
+                                                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]"></div>
+                            <i data-lucide="printer" class="w-14 h-14 sm:w-16 sm:h-16 text-white/90 group-hover:scale-110 transition-transform duration-300"></i>
+                                                <span class="absolute top-2.5 left-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            Cetak Banner                        </span>
+                        <span class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                            2025                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white" title="Spanduk Grand Opening 4x1m">
+                            Spanduk Grand Opening 4x1m                        </h3>
+                        <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 flex items-center gap-1">
+                            <i data-lucide="building-2" class="w-3 h-3 shrink-0"></i>
+                            <span class="truncate">Toko Berkah Jaya • Solo</span>
+                        </p>
+                        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                            Spanduk flexi Korea 440gsm warna tajam anti pudar.                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <a
+                            href="https://wa.me/6282264356885?text=Halo+admin%2C+saya+mau+buat+seperti%3A+Spanduk+Grand+Opening+4x1m+%28Toko+Berkah+Jaya%29"
+                            target="_blank"
+                            data-wa-sumber="portofolio" data-wa-ref="0"
+                            class="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-[10px] sm:text-xs py-2 sm:py-2.5 px-2 rounded-lg sm:rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all"
+                        >
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+                            <span class="truncate uppercase tracking-wider">Saya mau seperti ini</span>
+                        </a>
+                    </div>
+                </div>
+                                <div class="group bg-white dark:bg-[#141622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xs hover:shadow-lg dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <!-- Visual Contoh -->
+                    <div class="relative w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-amber-500 to-yellow-400 flex items-center justify-center">
+                                                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]"></div>
+                            <i data-lucide="box" class="w-14 h-14 sm:w-16 sm:h-16 text-white/90 group-hover:scale-110 transition-transform duration-300"></i>
+                                                <span class="absolute top-2.5 left-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            Huruf Timbul                        </span>
+                        <span class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                            2025                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white" title="Huruf Timbul Stainless Mirror">
+                            Huruf Timbul Stainless Mirror                        </h3>
+                        <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 flex items-center gap-1">
+                            <i data-lucide="building-2" class="w-3 h-3 shrink-0"></i>
+                            <span class="truncate">Kantor Notaris • Madiun</span>
+                        </p>
+                        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                            Huruf timbul stainless kilap mirror, tinggi 40cm.                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <a
+                            href="https://wa.me/6282264356885?text=Halo+admin%2C+saya+mau+buat+seperti%3A+Huruf+Timbul+Stainless+Mirror+%28Kantor+Notaris%29"
+                            target="_blank"
+                            data-wa-sumber="portofolio" data-wa-ref="0"
+                            class="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-[10px] sm:text-xs py-2 sm:py-2.5 px-2 rounded-lg sm:rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all"
+                        >
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+                            <span class="truncate uppercase tracking-wider">Saya mau seperti ini</span>
+                        </a>
+                    </div>
+                </div>
+                                <div class="group bg-white dark:bg-[#141622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xs hover:shadow-lg dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <!-- Visual Contoh -->
+                    <div class="relative w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-violet-500 to-purple-400 flex items-center justify-center">
+                                                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]"></div>
+                            <i data-lucide="flag" class="w-14 h-14 sm:w-16 sm:h-16 text-white/90 group-hover:scale-110 transition-transform duration-300"></i>
+                                                <span class="absolute top-2.5 left-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            Cetak Banner                        </span>
+                        <span class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                            2024                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white" title="X-Banner Event Kuliner">
+                            X-Banner Event Kuliner                        </h3>
+                        <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 flex items-center gap-1">
+                            <i data-lucide="building-2" class="w-3 h-3 shrink-0"></i>
+                            <span class="truncate">Festival Kuliner • Ngawi</span>
+                        </p>
+                        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                            Paket 10 X-banner albatros + tiang fiber untuk event.                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <a
+                            href="https://wa.me/6282264356885?text=Halo+admin%2C+saya+mau+buat+seperti%3A+X-Banner+Event+Kuliner+%28Festival+Kuliner%29"
+                            target="_blank"
+                            data-wa-sumber="portofolio" data-wa-ref="0"
+                            class="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-[10px] sm:text-xs py-2 sm:py-2.5 px-2 rounded-lg sm:rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all"
+                        >
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+                            <span class="truncate uppercase tracking-wider">Saya mau seperti ini</span>
+                        </a>
+                    </div>
+                </div>
+                                <div class="group bg-white dark:bg-[#141622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xs hover:shadow-lg dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <!-- Visual Contoh -->
+                    <div class="relative w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-emerald-500 to-teal-400 flex items-center justify-center">
+                                                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]"></div>
+                            <i data-lucide="shirt" class="w-14 h-14 sm:w-16 sm:h-16 text-white/90 group-hover:scale-110 transition-transform duration-300"></i>
+                                                <span class="absolute top-2.5 left-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            Merchandise                        </span>
+                        <span class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                            2025                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white" title="Kaos Sablon Komunitas 100pcs">
+                            Kaos Sablon Komunitas 100pcs                        </h3>
+                        <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 flex items-center gap-1">
+                            <i data-lucide="building-2" class="w-3 h-3 shrink-0"></i>
+                            <span class="truncate">Komunitas Motor • Karanganyar</span>
+                        </p>
+                        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                            Kaos cotton combed 30s sablon DTF warna tajam.                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <a
+                            href="https://wa.me/6282264356885?text=Halo+admin%2C+saya+mau+buat+seperti%3A+Kaos+Sablon+Komunitas+100pcs+%28Komunitas+Motor%29"
+                            target="_blank"
+                            data-wa-sumber="portofolio" data-wa-ref="0"
+                            class="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-[10px] sm:text-xs py-2 sm:py-2.5 px-2 rounded-lg sm:rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all"
+                        >
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+                            <span class="truncate uppercase tracking-wider">Saya mau seperti ini</span>
+                        </a>
+                    </div>
+                </div>
+                                <div class="group bg-white dark:bg-[#141622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xs hover:shadow-lg dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+                    <!-- Visual Contoh -->
+                    <div class="relative w-full aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 bg-gradient-to-br from-blue-500 to-indigo-400 flex items-center justify-center">
+                                                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:14px_14px]"></div>
+                            <i data-lucide="presentation" class="w-14 h-14 sm:w-16 sm:h-16 text-white/90 group-hover:scale-110 transition-transform duration-300"></i>
+                                                <span class="absolute top-2.5 left-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
+                            Cetak Banner                        </span>
+                        <span class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                            2024                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white" title="Roll Up Banner Pameran UMKM">
+                            Roll Up Banner Pameran UMKM                        </h3>
+                        <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 flex items-center gap-1">
+                            <i data-lucide="building-2" class="w-3 h-3 shrink-0"></i>
+                            <span class="truncate">Dinas Koperasi UMKM • Solo</span>
+                        </p>
+                        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                            Roll up banner 60x160 kaki aluminium untuk pameran.                        </p>
+                    </div>
+
+                    <div class="mt-3">
+                        <a
+                            href="https://wa.me/6282264356885?text=Halo+admin%2C+saya+mau+buat+seperti%3A+Roll+Up+Banner+Pameran+UMKM+%28Dinas+Koperasi+UMKM%29"
+                            target="_blank"
+                            data-wa-sumber="portofolio" data-wa-ref="0"
+                            class="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-[10px] sm:text-xs py-2 sm:py-2.5 px-2 rounded-lg sm:rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all"
+                        >
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+                            <span class="truncate uppercase tracking-wider">Saya mau seperti ini</span>
+                        </a>
+                    </div>
+                </div>
+                                    </div>
+
+        <!-- CTA Bawah -->
+        <div class="mt-10 sm:mt-14 bg-white dark:bg-[#141622] border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-6 sm:p-8 max-w-2xl mx-auto">
+            <h2 class="font-extrabold text-base sm:text-xl text-slate-900 dark:text-white mb-1.5">Punya proyek impian?</h2>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5">Ceritakan kebutuhanmu, kami bantu wujudkan dengan harga kompetitif.</p>
+            <a href="https://wa.me/6282264356885?text=Halo+admin%2C+saya+ingin+konsultasi+kebutuhan+advertising" target="_blank"
+                data-wa-sumber="portofolio_cta"
+                class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 active:scale-95 text-white font-bold text-xs sm:text-sm px-7 py-2.5 rounded-full shadow-md transition-all">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Konsultasi gratis</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+</main> <!-- End Main Content -->
+
+    <!-- FOOTER HITAM PRESISI GAMBAR -->
+        <footer class="bg-black text-white pt-10 pb-8 border-t border-slate-900 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8">
+
+                <!-- Col 1: Logo & Tagline -->
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-red-600 text-white font-black text-2xl px-2 py-1 rounded">X</div>
+                        <div>
+                            <h3 class="font-black text-base tracking-tight leading-none text-white">HERIEST CV. ADVERTISING</h3>
+                            <p class="text-[9px] text-red-500 font-bold tracking-widest uppercase">ADVERTISING</p>
+                        </div>
+                    </div>
+                    <p class="text-xs font-brush text-yellow-400 italic pt-1">We Touch With Colours.</p>
+                </div>
+
+                <!-- Col 2: Alamat -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Alamat</h4>
+                    <p class="text-[11px] text-slate-400 leading-relaxed flex items-start gap-1.5">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5"></i>
+                        <span>Jl. kabupaten nomor mangunsari, rego, kabupaten, manandai, kabupaten, kabupaten karanganyar, Jawa Timur 63281</span>
+                    </p>
+                </div>
+
+                <!-- Col 3: Kontak -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">kontak</h4>
+                    <p class="text-[11px] text-slate-400 flex items-center gap-2">
+                        <i data-lucide="phone" class="w-3.5 h-3.5"></i> 082264356885                    </p>
+                    <p class="text-[11px] text-slate-400 flex items-center gap-2">
+                        <i data-lucide="mail" class="w-3.5 h-3.5"></i> info@heriest.com                    </p>
+                </div>
+
+                <!-- Col 4: Ikuti Kami -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Ikuti kami</h4>
+                    <div class="flex items-center gap-3 text-slate-400 pt-1">
+                        <a href="#" target="_blank" rel="noopener" class="hover:text-white" title="TikTok"><i data-lucide="music-2" class="w-4 h-4"></i></a>
+                        <a href="#" target="_blank" rel="noopener" class="hover:text-white" title="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" target="_blank" rel="noopener" class="hover:text-white" title="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" target="_blank" rel="noopener" class="hover:text-white" title="YouTube"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- POPUP PROMO / PENGUMUMAN (atur via Admin > Pengaturan Website) -->
+        
+    <!-- Script Utama Situs: ikon Lucide & toggle tema -->
+    <script src="assets/js/site.js"></script>
+    <!-- Pelacak Klik WhatsApp (leads dashboard) -->
+    <script src="assets/js/wa-track.js"></script>
+</body>
+</html>
