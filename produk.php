@@ -1,0 +1,206 @@
+<?php 
+$page_title = "Galeri Produk Lengkap";
+require_once __DIR__ . '/config/database.php';
+include 'includes/header.php'; 
+
+$db = getDB();
+$db_categories = [];
+$db_products = [];
+$filter_kategori_name = $_GET['cat'] ?? '';
+$search_query = trim($_GET['cari'] ?? '');
+
+$wa_utama = getSetting('whatsapp', '082264356885');
+$wa_link = preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $wa_utama));
+
+if ($db) {
+    try {
+        $db_categories = $db->query("SELECT * FROM kategori ORDER BY id ASC")->fetchAll();
+        
+        $where = ["p.is_active = 1"];
+        $params = [];
+
+        if (!empty($search_query)) {
+            $where[] = "(p.nama_produk LIKE ? OR p.deskripsi LIKE ?)";
+            $params[] = "%{$search_query}%";
+            $params[] = "%{$search_query}%";
+        }
+
+        if (!empty($filter_kategori_name) && $filter_kategori_name !== 'semua') {
+            $where[] = "k.slug = ?";
+            $params[] = $filter_kategori_name;
+        }
+
+        $where_str = implode(" AND ", $where);
+        $stmt = $db->prepare("
+            SELECT p.*, k.nama_kategori, k.slug as kat_slug
+            FROM produk p 
+            LEFT JOIN kategori k ON p.kategori_id = k.id 
+            WHERE {$where_str} 
+            ORDER BY p.id DESC
+        ");
+        $stmt->execute($params);
+        $db_products = $stmt->fetchAll();
+    } catch (Exception $e) {
+        // Fallback
+    }
+}
+?>
+
+<!-- SECTION PRODUK LENGKAP -->
+<section id="produk" class="relative overflow-hidden py-12 sm:py-20 text-center">
+    
+    <!-- Background Ambient Glow -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-rose-200/40 dark:bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 -right-24 w-96 h-96 bg-sky-200/40 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 left-1/3 w-96 h-96 bg-amber-100/50 dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <!-- 1. Pill Badge Galeri Produk -->
+        <div class="inline-block mb-3 sm:mb-4">
+            <span class="border border-rose-300 dark:border-rose-400/80 text-rose-500 dark:text-rose-400 bg-white/90 dark:bg-[#141622] px-5 py-1.5 rounded-full text-xs font-bold tracking-wide shadow-2xs">
+                Galery produk
+            </span>
+        </div>
+
+        <!-- 2. Headline Utama -->
+        <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight uppercase leading-tight max-w-3xl mx-auto mb-6 sm:mb-8">
+            SOLUSI <span class="text-sky-500 dark:text-sky-400">VISUAL & MERCENDES</span><br>
+            TERBAIK ANDA
+        </h1>
+
+        <!-- 3. Search Bar -->
+        <div class="max-w-md mx-auto mb-6 sm:mb-8">
+            <form action="produk.php" method="GET" class="relative flex items-center bg-white dark:bg-[#141622] border border-rose-300 dark:border-rose-400/50 rounded-full p-1 sm:p-1.5 shadow-sm hover:border-rose-400 focus-within:border-rose-500 focus-within:ring-2 focus-within:ring-rose-200 dark:focus-within:ring-rose-900/50 transition-all">
+                <?php if (!empty($filter_kategori_name)): ?>
+                    <input type="hidden" name="cat" value="<?= htmlspecialchars($filter_kategori_name) ?>">
+                <?php endif; ?>
+                <input 
+                    type="text" 
+                    name="cari" 
+                    value="<?= htmlspecialchars($search_query) ?>"
+                    placeholder="cari produk" 
+                    class="w-full pl-5 pr-12 py-1.5 sm:py-2 text-xs sm:text-sm text-slate-700 dark:text-white bg-transparent outline-none placeholder:text-slate-400 dark:placeholder:text-slate-500"
+                >
+                <button 
+                    type="submit" 
+                    aria-label="Cari Produk" 
+                    class="absolute right-1.5 sm:right-2 w-8 h-8 rounded-full bg-red-600 hover:bg-red-700 active:scale-90 text-white flex items-center justify-center transition-all shadow-xs"
+                >
+                    <i data-lucide="search" class="w-4 h-4"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- 4. Category Filter -->
+        <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar py-2 px-1 mb-8 sm:mb-12 justify-start sm:justify-center -mx-4 sm:mx-0 px-4">
+            <a 
+                href="produk.php"
+                class="whitespace-nowrap px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0 
+                <?= (empty($filter_kategori_name) || $filter_kategori_name === 'semua') 
+                    ? 'border border-rose-400 text-rose-500 dark:text-rose-400 bg-white dark:bg-[#181a28] shadow-2xs' 
+                    : 'border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 bg-white/70 dark:bg-[#141622]/80 hover:border-rose-300 hover:text-rose-500 dark:hover:text-white' 
+                ?>">
+                Semua
+            </a>
+            <?php foreach ($db_categories as $cat): ?>
+                <a 
+                    href="produk.php?cat=<?= urlencode($cat['slug']) ?>"
+                    class="whitespace-nowrap px-4 sm:px-5 py-1.5 rounded-full text-xs font-semibold transition-all shrink-0 
+                    <?= ($filter_kategori_name === $cat['slug']) 
+                        ? 'border border-rose-400 text-rose-500 dark:text-rose-400 bg-white dark:bg-[#181a28] shadow-2xs' 
+                        : 'border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 bg-white/70 dark:bg-[#141622]/80 hover:border-rose-300 hover:text-rose-500 dark:hover:text-white' 
+                    ?>">
+                    <?= htmlspecialchars($cat['nama_kategori']) ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- 5. Grid Produk -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 text-left">
+            <?php if (empty($db_products)): ?>
+                <div class="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-4 text-center py-16 text-slate-400">
+                    <i data-lucide="inbox" class="w-12 h-12 mx-auto mb-3 text-slate-600"></i>
+                    <p class="text-base font-bold text-white">Tidak ada produk yang cocok</p>
+                    <p class="text-xs text-slate-500 mt-1">Coba gunakan kata kunci lain atau pilih kategori Semua.</p>
+                </div>
+            <?php else: ?>
+                <?php foreach ($db_products as $item): ?>
+                <div class="group bg-white dark:bg-[#141622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xs hover:shadow-lg dark:hover:border-slate-700 transition-all flex flex-col justify-between">
+                    
+                    <div>
+                        <!-- Container Gambar Produk -->
+                        <div class="relative w-full aspect-square rounded-xl sm:rounded-2xl bg-slate-50 dark:bg-[#0d0f17] overflow-hidden flex items-center justify-center border border-slate-100 dark:border-slate-800/80 mb-3 sm:mb-4">
+                            
+                            <!-- Pattern Titik-Titik Halus di Latar -->
+                            <div class="absolute inset-0 opacity-40 dark:opacity-20 bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:12px_12px]"></div>
+
+                            <!-- Technical Corner Marks -->
+                            <div class="absolute top-2 left-2 w-2 h-2 border-t-2 border-l-2 border-slate-400 dark:border-slate-600"></div>
+                            <div class="absolute top-2 right-2 w-2 h-2 border-t-2 border-r-2 border-slate-400 dark:border-slate-600"></div>
+                            <div class="absolute bottom-2 left-2 w-2 h-2 border-b-2 border-l-2 border-slate-400 dark:border-slate-600"></div>
+                            <div class="absolute bottom-2 right-2 w-2 h-2 border-b-2 border-r-2 border-slate-400 dark:border-slate-600"></div>
+
+                            <?php if (!empty($item['gambar']) && file_exists(__DIR__ . '/assets/images/uploads/' . $item['gambar'])): ?>
+                                <!-- Gambar Asli Upload -->
+                                <img src="assets/images/uploads/<?= htmlspecialchars($item['gambar']) ?>" alt="<?= htmlspecialchars($item['nama_produk']) ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <?php else: ?>
+                                <!-- Mockup Baju Hitam Realistis -->
+                                <div class="relative w-4/5 h-4/5 flex items-center justify-center drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                                    <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M60 45 L80 55 C90 60 110 60 120 55 L140 45 L175 75 L155 100 L140 88 L140 170 C140 172 138 174 135 174 L65 174 C62 174 60 172 60 170 L60 88 L45 100 L25 75 Z" fill="#18181b"/>
+                                        <path d="M80 55 C90 68 110 68 120 55 C110 60 90 60 80 55 Z" fill="#27272a"/>
+                                        <path d="M60 88 L60 170" stroke="#27272a" stroke-width="2"/>
+                                        <path d="M140 88 L140 170" stroke="#27272a" stroke-width="2"/>
+                                    </svg>
+                                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center px-4 pt-3">
+                                        <span class="text-[9px] sm:text-[11px] font-black text-white leading-tight tracking-wider uppercase drop-shadow-sm">
+                                            DESAIN<br>KAMU<br>DISINI
+                                        </span>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                        </div>
+
+                        <!-- Judul & Keterangan Produk -->
+                        <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white truncate" title="<?= htmlspecialchars($item['nama_produk']) ?>">
+                            <?= htmlspecialchars($item['nama_produk']) ?>
+                        </h3>
+                        <p class="text-[10px] sm:text-xs text-slate-400 dark:text-slate-400 truncate mt-0.5">
+                            <?= htmlspecialchars($item['deskripsi'] ?? 'Produk Promosi Berkualitas') ?>
+                        </p>
+                    </div>
+
+                    <!-- Bagian Bawah: Divider, Harga & Tombol WA -->
+                    <div class="mt-2.5 sm:mt-3">
+                        <div class="border-t border-slate-100 dark:border-slate-800/80 pt-2 sm:pt-2.5">
+                            <span class="block font-black text-xs sm:text-base text-amber-500 dark:text-amber-400 mb-2">
+                                <?= formatRupiah($item['harga']) ?>
+                            </span>
+                        </div>
+
+                        <?php 
+                            $wa_pesan = !empty($item['wa_text']) ? $item['wa_text'] : 'Halo admin, saya ingin pesan ' . $item['nama_produk'];
+                        ?>
+                        <!-- Tombol Pesan WA -->
+                        <a 
+                            href="https://wa.me/<?= $wa_link ?>?text=<?= urlencode($wa_pesan) ?>" 
+                            target="_blank" 
+                            data-wa-sumber="produk" data-wa-ref="<?= (int)$item['id'] ?>"
+                            class="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white font-bold text-[10px] sm:text-xs py-2 sm:py-2.5 px-2 rounded-lg sm:rounded-xl shadow-xs flex items-center justify-center gap-1.5 transition-all"
+                        >
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 fill-current shrink-0"></i>
+                            <span class="truncate uppercase tracking-wider">PESAN VIA WA</span>
+                        </a>
+                    </div>
+
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+
+    </div>
+</section>
+
+<?php include 'includes/footer.php'; ?>
