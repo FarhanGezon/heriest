@@ -455,8 +455,8 @@ if ($db) {
             <div class="bg-white dark:bg-[#141622] border border-slate-200 dark:border-slate-800/80 rounded-2xl sm:rounded-3xl p-5 text-left sm:text-center shadow-xs flex sm:flex-col items-start sm:items-center gap-3.5 sm:gap-0">
                 <div class="w-8 h-8 shrink-0 bg-orange-500 text-white rounded-full flex items-center justify-center font-black text-xs sm:mb-3 shadow-xs">2</div>
                 <div>
-                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-1 sm:mb-1.5">Konsultasi via WA</h3>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Hubungi kami untuk konsultasi jenis pesanan, ukuran, dan kebutuhan bisnis Anda.</p>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-1 sm:mb-1.5">Penawaran & Desain</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Kami buatkan desain beserta penawaran harga terbaik sesuai kebutuhan dan budget Anda.</p>
                 </div>
             </div>
 
@@ -464,8 +464,8 @@ if ($db) {
             <div class="bg-white dark:bg-[#141622] border border-slate-200 dark:border-slate-800/80 rounded-2xl sm:rounded-3xl p-5 text-left sm:text-center shadow-xs flex sm:flex-col items-start sm:items-center gap-3.5 sm:gap-0">
                 <div class="w-8 h-8 shrink-0 bg-purple-600 text-white rounded-full flex items-center justify-center font-black text-xs sm:mb-3 shadow-xs">3</div>
                 <div>
-                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-1 sm:mb-1.5">Konsultasi via WA</h3>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Hubungi kami untuk konsultasi jenis pesanan, ukuran, dan kebutuhan bisnis Anda.</p>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-1 sm:mb-1.5">Produksi & Pengerjaan</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Setelah desain disetujui dan DP diterima, pesanan diproses dengan mesin modern dan bahan terbaik.</p>
                 </div>
             </div>
 
@@ -473,8 +473,8 @@ if ($db) {
             <div class="bg-white dark:bg-[#141622] border border-slate-200 dark:border-slate-800/80 rounded-2xl sm:rounded-3xl p-5 text-left sm:text-center shadow-xs flex sm:flex-col items-start sm:items-center gap-3.5 sm:gap-0">
                 <div class="w-8 h-8 shrink-0 bg-blue-600 text-white rounded-full flex items-center justify-center font-black text-xs sm:mb-3 shadow-xs">4</div>
                 <div>
-                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-1 sm:mb-1.5">Konsultasi via WA</h3>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Hubungi kami untuk konsultasi jenis pesanan, ukuran, dan kebutuhan bisnis Anda.</p>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white mb-1 sm:mb-1.5">Pengiriman & Pemasangan</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Pesanan dikirim atau dipasang langsung oleh tim kami, selesai tepat waktu dan bergaransi.</p>
                 </div>
             </div>
 

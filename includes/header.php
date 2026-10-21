@@ -30,17 +30,8 @@
             <div class="flex justify-between items-center h-14">
                 
                 <!-- Logo Kiri Presisi -->
-                <a href="index.php" class="flex items-center gap-2">
-                    <div class="bg-red-600 text-white font-black text-xl px-2.5 py-1 rounded flex items-center justify-center leading-none">
-                        X
-                    </div>
-                    <div class="flex flex-col justify-center">
-                        <div class="flex items-center gap-0.5 leading-none">
-                            <span class="text-xs font-black tracking-tight text-white">HERIEST</span>
-                            <span class="text-[10px] font-bold text-white">CV</span>
-                        </div>
-                        <span class="text-[7px] font-semibold text-red-500 uppercase tracking-widest mt-0.5 leading-none">ADVERTISING</span>
-                    </div>
+                <a href="index.php" class="flex items-center">
+                    <img src="assets/images/logo-heriest.png" alt="Heriest Logo" class="h-10 w-auto object-contain">
                 </a>
 
                 <!-- Navigasi Tengah -->

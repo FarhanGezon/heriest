@@ -6,7 +6,7 @@ include 'includes/header.php';
 $wa_utama = getSetting('whatsapp', '082264356885');
 $wa_link = preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $wa_utama));
 
-// Ambil portofolio dari database (fallback contoh jika kosong)
+// Ambil portofolio dari database (sinkron dengan admin)
 $db = getDB();
 $db_rows = [];
 if ($db) {
@@ -29,6 +29,7 @@ $grad_map = [
     'sablon-kaos' => 'from-violet-500 to-purple-400',
 ];
 
+$semua_karya = [];
 if (!empty($db_rows)) {
     $semua_karya = array_map(function ($r) use ($grad_map) {
         $slug = $r['slug'] ?? 'lainnya';
@@ -48,76 +49,6 @@ if (!empty($db_rows)) {
             'id' => (int)$r['id'],
         ];
     }, $db_rows);
-} else {
-// Contoh data portofolio (tampil hanya jika database masih kosong)
-$semua_karya = [
-    [
-        'judul' => 'Neon Box Bulat 80cm',
-        'klien' => 'Kafe Aroma',
-        'kategori' => 'Neon Box',
-        'slug' => 'neon-box',
-        'lokasi' => 'Karanganyar',
-        'tahun' => '2026',
-        'deskripsi' => 'Neon box 2 sisi akrilik + LED hemat energi untuk plang cafe.',
-        'grad' => 'from-rose-500 to-orange-400',
-        'icon' => 'lightbulb',
-    ],
-    [
-        'judul' => 'Spanduk Grand Opening 4x1m',
-        'klien' => 'Toko Berkah Jaya',
-        'kategori' => 'Cetak Banner',
-        'slug' => 'cetak-banner',
-        'lokasi' => 'Solo',
-        'tahun' => '2025',
-        'deskripsi' => 'Spanduk flexi Korea 440gsm warna tajam anti pudar.',
-        'grad' => 'from-sky-500 to-cyan-400',
-        'icon' => 'printer',
-    ],
-    [
-        'judul' => 'Huruf Timbul Stainless Mirror',
-        'klien' => 'Kantor Notaris',
-        'kategori' => 'Huruf Timbul',
-        'slug' => 'huruf-timbul',
-        'lokasi' => 'Madiun',
-        'tahun' => '2025',
-        'deskripsi' => 'Huruf timbul stainless kilap mirror, tinggi 40cm.',
-        'grad' => 'from-amber-500 to-yellow-400',
-        'icon' => 'box',
-    ],
-    [
-        'judul' => 'X-Banner Event Kuliner',
-        'klien' => 'Festival Kuliner',
-        'kategori' => 'Cetak Banner',
-        'slug' => 'cetak-banner',
-        'lokasi' => 'Ngawi',
-        'tahun' => '2024',
-        'deskripsi' => 'Paket 10 X-banner albatros + tiang fiber untuk event.',
-        'grad' => 'from-violet-500 to-purple-400',
-        'icon' => 'flag',
-    ],
-    [
-        'judul' => 'Kaos Sablon Komunitas 100pcs',
-        'klien' => 'Komunitas Motor',
-        'kategori' => 'Merchandise',
-        'slug' => 'merchandise',
-        'lokasi' => 'Karanganyar',
-        'tahun' => '2025',
-        'deskripsi' => 'Kaos cotton combed 30s sablon DTF warna tajam.',
-        'grad' => 'from-emerald-500 to-teal-400',
-        'icon' => 'shirt',
-    ],
-    [
-        'judul' => 'Roll Up Banner Pameran UMKM',
-        'klien' => 'Dinas Koperasi UMKM',
-        'kategori' => 'Cetak Banner',
-        'slug' => 'cetak-banner',
-        'lokasi' => 'Solo',
-        'tahun' => '2024',
-        'deskripsi' => 'Roll up banner 60x160 kaki aluminium untuk pameran.',
-        'grad' => 'from-blue-500 to-indigo-400',
-        'icon' => 'presentation',
-    ],
-];
 }
 
 $filter = $_GET['cat'] ?? 'semua';

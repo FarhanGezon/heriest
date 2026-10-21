@@ -3,7 +3,6 @@
     <!-- FOOTER HITAM PRESISI GAMBAR -->
     <?php
         $f_nama = function_exists('getSetting') ? getSetting('nama_toko', 'HERIEST CV. ADVERTISING') : 'HERIEST CV. ADVERTISING';
-        $f_tagline = function_exists('getSetting') ? getSetting('tagline', 'We Touch With Colours.') : 'We Touch With Colours.';
         $f_alamat = function_exists('getSetting') ? getSetting('alamat', 'Jl. kabupaten nomor mangunsari, rego, kabupaten, manandai, kabupaten, kabupaten karanganyar, Jawa Timur 63281') : 'Jl. kabupaten nomor mangunsari, rego, kabupaten, manandai, kabupaten, kabupaten karanganyar, Jawa Timur 63281';
         $f_wa = function_exists('getSetting') ? getSetting('whatsapp', '082264356885') : '082264356885';
         $f_email = function_exists('getSetting') ? getSetting('email', 'info@heriest.com') : 'info@heriest.com';
@@ -16,16 +15,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8">
 
-                <!-- Col 1: Logo & Tagline -->
+                <!-- Col 1: Logo -->
                 <div class="space-y-2">
                     <div class="flex items-center gap-2">
-                        <div class="bg-red-600 text-white font-black text-2xl px-2 py-1 rounded">X</div>
-                        <div>
-                            <h3 class="font-black text-base tracking-tight leading-none text-white"><?= htmlspecialchars($f_nama) ?></h3>
-                            <p class="text-[9px] text-red-500 font-bold tracking-widest uppercase">ADVERTISING</p>
-                        </div>
+                        <img src="assets/images/logo-heriest.png" alt="<?= htmlspecialchars($f_nama) ?>" class="h-12 w-auto object-contain">
                     </div>
-                    <p class="text-xs font-brush text-yellow-400 italic pt-1"><?= htmlspecialchars($f_tagline) ?></p>
                 </div>
 
                 <!-- Col 2: Alamat -->

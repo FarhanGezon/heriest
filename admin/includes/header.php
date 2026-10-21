@@ -35,17 +35,7 @@ $admin_nama = $_SESSION['admin_nama'] ?? 'Administrator';
                 <!-- Brand Logo Sidebar -->
                 <div class="h-16 flex items-center justify-between px-6 border-b border-slate-800/80">
                     <a href="index.php" class="flex items-center gap-2">
-                        <div class="bg-red-600 text-white font-black text-xl px-2 py-0.5 rounded flex items-center justify-center leading-none">
-                            X
-                        </div>
-                        <div>
-                            <div class="font-black text-sm tracking-wider text-white leading-none">
-                                HERIEST <span class="text-[10px] font-normal text-slate-400">CV.</span>
-                            </div>
-                            <div class="text-[7px] font-bold tracking-widest text-red-500 uppercase mt-0.5">
-                                ADMIN PANEL
-                            </div>
-                        </div>
+                        <img src="../assets/images/logo-heriest.png" alt="HERIEST CV. ADVERTISING" class="h-10 w-auto object-contain">
                     </a>
                     
                     <!-- Close button on mobile -->
